@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
     
-</body>
+
 
 <?php
 
@@ -20,8 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Contraseña=$_POST["pass"];
     $_SESSION["Usuario"] = $Usuario;      
     $_SESSION["contraseña"] = $Contraseña;
-?>
-<?php
+
     if ( $_SESSION["Usuario"] == $Contraseña ){
         echo "Usuario: {$_SESSION ['Usuario']} \n";      
         echo "Contraseña: {$_SESSION ['Usuario']}\n";
@@ -36,6 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }    
 ?>
-
+</body>
 
 </html>
