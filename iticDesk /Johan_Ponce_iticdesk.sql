@@ -7,6 +7,20 @@
 -- Versión del servidor: 8.0.40-0ubuntu0.24.04.1
 -- Versión de PHP: 8.3.6
 
+
+CREATE USER johan1 IDENTIFIED BY 'johan1';
+GRANT ALL PRIVILEGES ON *.* TO johan1;
+FLUSH PRIVILEGES ;
+
+CREATE DATABASE Johan_Ponce_iticdesk;
+USE Johan_Ponce_iticdesk;
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
