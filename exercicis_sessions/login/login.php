@@ -1,17 +1,31 @@
 <?php
 session_start();
-    $Usuario=$_POST["user"];
-    $Contraseña=$_POST["pass"];
-    $_SESSION["Usuario"] = $Usuario;      
-    $_SESSION["contraseña"] = $Contraseña;
+
+// Comprobar que llegan ambos campos
+if (isset($_POST['user']) && isset($_POST['pwd'])) {
+    $user = trim($_POST['user']);
+    $pwd  = trim($_POST['pwd']);
 
 
-    if ( $_SESSION["Usuario"] == $Contraseña ){
-        echo "Usuario: {$_SESSION ['Usuario']} \n";      
-        echo "Contraseña: {$_SESSION ['Usuario']}\n";
-    }else { 
-        header( 'Location: info.html' );
+    if ($user === $pwd) {
+        // Guardar en sesión
+        $_SESSION['user']    = $user;
+        $_SESSION['Usuario'] = $user;
+        $_SESSION['clave']   = $pwd; 
+
+        
+        echo "<p>Usuario: {$_SESSION['Usuario']}</p>";
+        echo "<p>Contraseña: {$_SESSION['clave']}</p>";
+        echo '<p><a href="pagina1.php">Ir a la página 1</a></p>';
+        exit();
+    } else {
+        // Si falla, redirigir a info.html
+        header('Location: info.html');
         exit();
     }
-
+} else {
+    // Si no vienen bien los datos, volver a index
+    header('Location: index.html');
+    exit();
+}
 ?>
